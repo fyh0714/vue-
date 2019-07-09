@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 使用AppHeader组件-->
+    <app-header></app-header>
+    <!-- 使用AppSilder组件 -->
+    <app-silderbar></app-silderbar>
+    <!-- 使用AppList组件 -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//1.导入组件
+import AppHeader from './components/AppHeader.vue'
+import AppSilderbar from './components/AppSilderbar.vue'
 
 export default {
   name: 'app',
+  //2.注册局部组件
   components: {
-    HelloWorld
+    AppHeader,
+    AppSilderbar,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
