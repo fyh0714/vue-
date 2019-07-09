@@ -12,6 +12,7 @@ import HeroList from './views/hero/HeroList.vue'
 import WeaponList from './views/weapon/WeaponList.vue'
 import EquipList from './views/equip/EquipList.vue'
 import HeroAdd from './views/hero/HeroAdd.vue'
+import HeroEdit from './views/hero/HeroEdit.vue'
 
 //创建路由对象
 const router = new VueRouter({
@@ -26,6 +27,7 @@ const router = new VueRouter({
     {name:'weapon',path:'/weapon',component:WeaponList},
     {name:'equip',path:'/equip',component:EquipList},
     {name:'heroadd',path:'/hero/add',component:HeroAdd},
+    {name:'heroedit',path:'/hero/edit/:id',component:HeroEdit},
   ]
 })
 export default router
