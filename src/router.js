@@ -27,7 +27,7 @@ const router = new VueRouter({
     {name:'weapon',path:'/weapon',component:WeaponList},
     {name:'equip',path:'/equip',component:EquipList},
     {name:'heroadd',path:'/hero/add',component:HeroAdd},
-    {name:'heroedit',path:'/hero/edit/:id',component:HeroEdit},
+    {name:'heroedit',path:'/hero/edit/:id',component:HeroEdit,props:true},
   ]
 })
 export default router

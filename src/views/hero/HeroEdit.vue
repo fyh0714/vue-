@@ -16,17 +16,18 @@
           </div>
           <!-- button是提交按钮 -->
           <!-- prevent 事件修饰符，阻止默认行为 -->
-          <button @click.prevent="add" class="btn btn-success">修改</button>
+          <button @click.prevent="update" class="btn btn-success">提交</button>
         </form>
       </div>
 </template>
 
 <script>
 import axios from 'axios'
+//组件中获取动态路由中的id --> $router.params.id
+//路由规则设置props:true,路由自动把id数据传递给组件
+//组件中接收props:['id']
 export default {
-    //1.绑定文本框(下拉框)
-    //2.点击按钮发送请求实习添加
-    //3.添加成功跳转回列表
+    props:['id'],
     data() {
         return {
             //封装表单数据
@@ -36,6 +37,38 @@ export default {
             }
         }
     },
+    mounted() {
+        this.getDataById()
+    },
+    methods:{
+        //组件加载完成，查询数据
+        getDataById() {
+            axios
+            .get(`http://localhost:3000/heroes/${this.id}`)
+            .then( (res) => {
+                const { data,status } = res
+                if (status == 200) {
+                    this.formData = data
+                }else {
+                    alert('查询失败')
+                }
+            })
+        },
+        update () {
+            axios
+            .put(`http://localhost:3000/heroes/${this.id}`,this.formData)
+            .then( (res) => {
+                const status = res.status
+                if( status ==200 ) {
+                    //修改成功跳回列表
+                    this.$router.push('/hero')
+                }else{
+                    alert('修改失败')
+                }
+            })
+        }
+
+    }
 }
 </script>
 
