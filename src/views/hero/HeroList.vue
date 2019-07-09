@@ -49,7 +49,7 @@ export default {
       //加载数据
       loadData(){
         this.axios
-        .get('http://localhost:3000/heroes')
+        .get('heroes')
         .then( (res) => {
           const { data,status } = res
           if(status === 200) {
@@ -69,7 +69,7 @@ export default {
           return false
         }
         this.axios
-        .delete(`http://localhost:3000/heroes/${id}`)
+        .delete(`heroes/${id}`)
         .then( (response) => {
           const status = response.status
           if(status === 200) {

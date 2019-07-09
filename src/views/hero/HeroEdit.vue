@@ -43,7 +43,7 @@ export default {
         //组件加载完成，查询数据
         getDataById() {
             this.axios
-            .get(`http://localhost:3000/heroes/${this.id}`)
+            .get(`heroes/${this.id}`)
             .then( (res) => {
                 const { data,status } = res
                 if (status == 200) {
@@ -55,7 +55,7 @@ export default {
         },
         update () {
             this.axios
-            .put(`http://localhost:3000/heroes/${this.id}`,this.formData)
+            .put(`heroes/${this.id}`,this.formData)
             .then( (res) => {
                 const status = res.status
                 if( status ==200 ) {
