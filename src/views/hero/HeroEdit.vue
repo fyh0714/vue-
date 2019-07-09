@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 //组件中获取动态路由中的id --> $router.params.id
 //路由规则设置props:true,路由自动把id数据传递给组件
 //组件中接收props:['id']
@@ -43,7 +42,7 @@ export default {
     methods:{
         //组件加载完成，查询数据
         getDataById() {
-            axios
+            this.axios
             .get(`http://localhost:3000/heroes/${this.id}`)
             .then( (res) => {
                 const { data,status } = res
@@ -55,7 +54,7 @@ export default {
             })
         },
         update () {
-            axios
+            this.axios
             .put(`http://localhost:3000/heroes/${this.id}`,this.formData)
             .then( (res) => {
                 const status = res.status

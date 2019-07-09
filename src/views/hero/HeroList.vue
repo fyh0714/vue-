@@ -33,7 +33,6 @@
 <script>
 //1.英雄列表
 //1.1发送请求获取列表
-import axios from 'axios'
 //1.2渲染列表
 export default {
     data () {
@@ -49,7 +48,7 @@ export default {
     methods: {
       //加载数据
       loadData(){
-        axios
+        this.axios
         .get('http://localhost:3000/heroes')
         .then( (res) => {
           const { data,status } = res
@@ -69,7 +68,7 @@ export default {
         if(!confirm('确定删除？')){
           return false
         }
-        axios
+        this.axios
         .delete(`http://localhost:3000/heroes/${id}`)
         .then( (response) => {
           const status = response.status

@@ -6,6 +6,10 @@
 import Vue from 'vue'
 //根组件
 import App from './App.vue'
+
+import axios from 'axios'
+//让所有vue实例都具有一个属性axios，给vue构造函数的原型增加成员
+Vue.prototype.axios = axios
 //引入外部样式
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import './assets/css/index.css'

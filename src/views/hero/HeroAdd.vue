@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
     //1.绑定文本框(下拉框)
     //2.点击按钮发送请求实习添加
@@ -38,7 +37,7 @@ export default {
     },
     methods:{
         add() {
-            axios
+            this.axios
             .post('http://localhost:3000/heroes',this.formData)
             .then( (res) => {
                 const status = res.status;
